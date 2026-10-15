@@ -1,0 +1,46 @@
+{
+  "categories": [
+    {
+      "id": "abkuerzungen",
+      "name": "Abkürzungen aus der Informatik",
+      "cards": [
+        {
+          "frage": "Wofür steht SQL?",
+          "antwort": "Structured Query Language; Sprache zum Abfragen und Bearbeiten relationaler Datenbanken."
+        },
+        {
+          "frage": "Wofür steht CPU?",
+          "antwort": "Central Processing Unit; Hauptprozessor eines Computers."
+        },
+        {
+          "frage": "Wofür steht RAM?",
+          "antwort": "Random Access Memory; flüchtiger Arbeitsspeicher eines Computers."
+        },
+        {
+          "frage": "Wofür steht URL?",
+          "antwort": "Uniform Resource Locator; Internetadresse einer Ressource."
+        },
+        {
+          "frage": "Wofür steht IP?",
+          "antwort": "Internet Protocol; Regelwerk zur Adressierung und Übertragung von Daten in IP-Netzwerken."
+        },
+        {
+          "frage": "Wofür steht WWW?",
+          "antwort": "World Wide Web; über das Internet abrufbare Webseiten und miteinander verknüpfte Inhalte."
+        },
+        {
+          "frage": "Wofür steht KI?",
+          "antwort": "Künstliche Intelligenz; Verfahren, mit denen Computersysteme Aufgaben bearbeiten, die typischerweise menschliche Fähigkeiten erfordern."
+        },
+        {
+          "frage": "Wofür steht DNS?",
+          "antwort": "Domain Name System; Dienst zur Zuordnung von Domainnamen zu IP-Adressen."
+        },
+        {
+          "frage": "Wofür steht HTTPS?",
+          "antwort": "Hypertext Transfer Protocol Secure; verschlüsselte Variante des HTTP-Protokolls für die Webkommunikation."
+        }
+      ]
+    }
+  ]
+}

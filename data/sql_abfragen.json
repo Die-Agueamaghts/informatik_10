@@ -1,0 +1,218 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "name": "Stufe 1 – Einfache Abfragen & Filterung",
+      "cards": [
+        {
+          "frage": "Wie werden alle Spalten und alle Datensätze aus einer Tabelle namens 'Kunden' abgefragt?",
+          "antwort": "SELECT * FROM Kunden;"
+        },
+        {
+          "frage": "Wie zeigt man nur die Namen und Preise aller Produkte aus der Tabelle 'Produkte' an?",
+          "antwort": "SELECT Name, Preis FROM Produkte;"
+        },
+        {
+          "frage": "Wie fragt man nur die Spalten 'Vorname' und 'Nachname' der Kunden ab, die aus 'Berlin' kommen?",
+          "antwort": "SELECT Vorname, Nachname FROM Kunden WHERE Stadt = 'Berlin';"
+        },
+        {
+          "frage": "Wie findet man alle Produkte, deren Lagerbestand kleiner als 5 ist?",
+          "antwort": "SELECT * FROM Produkte WHERE Lagerbestand < 5;"
+        },
+        {
+          "frage": "Wie findet man alle offenen Bestellungen? Die Spalte 'Status' enthält den Text 'offen'.",
+          "antwort": "SELECT * FROM Bestellungen WHERE Status = 'offen';"
+        },
+        {
+          "frage": "Wie filtert man Produkte, deren Preis zwischen 10 und 50 Euro liegt (inklusive Grenzwerte)?",
+          "antwort": "SELECT * FROM Produkte WHERE Preis BETWEEN 10 AND 50;"
+        },
+        {
+          "frage": "Wie filtert man Kunden, deren Nachname mit dem Buchstaben 'S' beginnt?",
+          "antwort": "SELECT * FROM Kunden WHERE Nachname LIKE 'S%';"
+        },
+        {
+          "frage": "Wie findet man alle Bestellungen, bei denen das Lieferdatum noch nicht eingetragen (also unbekannt bzw. leer) ist?",
+          "antwort": "SELECT * FROM Bestellungen WHERE Lieferdatum IS NULL;"
+        },
+        {
+          "frage": "Wie lautet die Abfrage, um alle Kunden anzuzeigen, die entweder aus 'München' oder aus 'Hamburg' kommen?",
+          "antwort": "SELECT * FROM Kunden WHERE Stadt IN ('München', 'Hamburg');"
+        },
+        {
+          "frage": "Wie findet man alle Bücher, deren Titel das Wort 'Informatik' enthält?",
+          "antwort": "SELECT * FROM Buecher WHERE Titel LIKE '%Informatik%';"
+        },
+        {
+          "frage": "Wie zeigt man alle Schüler an, deren Klasse noch nicht eingetragen ist?",
+          "antwort": "SELECT * FROM Schueler WHERE Klasse IS NULL;"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Stufe 2 – Kombinierte Filter & Sortierung",
+      "cards": [
+        {
+          "frage": "Wie listet man alle Produkte nach ihrem Preis sortiert auf – beginnend beim teuersten Produkt?",
+          "antwort": "SELECT * FROM Produkte ORDER BY Preis DESC;"
+        },
+        {
+          "frage": "Wie gibt man eine Liste aller unterschiedlichen (einmaligen) Länder aus, aus denen die Kunden stammen, und benennt die Spalte als 'Heimatland'?",
+          "antwort": "SELECT DISTINCT Land AS Heimatland FROM Kunden;"
+        },
+        {
+          "frage": "Wie fragt man die drei günstigsten Produkte ab?",
+          "antwort": "SELECT * FROM Produkte ORDER BY Preis ASC LIMIT 3;"
+        },
+        {
+          "frage": "Wie sortiert man Schüler zuerst nach Nachnamen und bei gleichem Nachnamen nach Vornamen?",
+          "antwort": "SELECT * FROM Schueler ORDER BY Nachname ASC, Vorname ASC;"
+        },
+        {
+          "frage": "Wie zeigt man die fünf neuesten Bestellungen an? Die Spalte 'Bestelldatum' enthält das Datum.",
+          "antwort": "SELECT * FROM Bestellungen ORDER BY Bestelldatum DESC LIMIT 5;"
+        },
+        {
+          "frage": "Wie findet man verfügbare Produkte, die weniger als 20 Euro kosten? 'Verfuegbar' ist ein Wahrheitswert.",
+          "antwort": "SELECT * FROM Produkte WHERE Verfuegbar = TRUE AND Preis < 20;"
+        },
+        {
+          "frage": "Wie findet man aktive Kunden aus Berlin oder Hamburg?",
+          "antwort": "SELECT * FROM Kunden WHERE Aktiv = TRUE AND (Stadt = 'Berlin' OR Stadt = 'Hamburg');"
+        },
+        {
+          "frage": "Wie zeigt man Produkte mit ihrem um 10 Prozent reduzierten Preis an, ohne den gespeicherten Preis zu ändern?",
+          "antwort": "SELECT Name, Preis, Preis * 0.9 AS Aktionspreis FROM Produkte;"
+        },
+        {
+          "frage": "Wie findet man Bestellungen aus dem Jahr 2026? 'Bestelldatum' ist als Datum gespeichert.",
+          "antwort": "SELECT * FROM Bestellungen WHERE Bestelldatum >= '2026-01-01' AND Bestelldatum < '2027-01-01';"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Stufe 3 – Berechnen & Gruppieren",
+      "cards": [
+        {
+          "frage": "Wie berechnet man die Gesamtzahl aller registrierten Kunden in der Tabelle 'Kunden'?",
+          "antwort": "SELECT COUNT(*) AS GesamtKunden FROM Kunden;"
+        },
+        {
+          "frage": "Wie ermittelt man den durchschnittlichen Preis, den maximalen Preis und den minimalen Preis aller Produkte?",
+          "antwort": "SELECT AVG(Preis) AS Durchschnitt, MAX(Preis) AS Maximum, MIN(Preis) AS Minimum FROM Produkte;"
+        },
+        {
+          "frage": "Wie berechnet man den Gesamtumsatz (Summe) aller Bestellungen, die im Jahr 2026 getätigt wurden?",
+          "antwort": "SELECT SUM(Betrag) AS Gesamtumsatz FROM Bestellungen WHERE Bestelljahr = 2026;"
+        },
+        {
+          "frage": "Wie ermittelt man die Anzahl der Kunden pro Stadt?",
+          "antwort": "SELECT Stadt, COUNT(*) AS AnzahlKunden FROM Kunden GROUP BY Stadt;"
+        },
+        {
+          "frage": "Wie filtert man Gruppen: Zeige alle Städte mit der jeweiligen Anzahl an Kunden, aber nur, wenn in der Stadt mehr als 5 Kunden wohnen?",
+          "antwort": "SELECT Stadt, COUNT(*) AS AnzahlKunden FROM Kunden GROUP BY Stadt HAVING COUNT(*) > 5;"
+        },
+        {
+          "frage": "Wie berechnet man den Durchschnittspreis der Produkte pro Kategorie, sortiert nach dem höchsten Durchschnittspreis, für Kategorien mit einem Schnitt über 100 Euro?",
+          "antwort": "SELECT Kategorie, AVG(Preis) AS Schnitt FROM Produkte GROUP BY Kategorie HAVING AVG(Preis) > 100 ORDER BY Schnitt DESC;"
+        },
+        {
+          "frage": "Wie zählt man, wie viele Produkte es in jeder Kategorie gibt?",
+          "antwort": "SELECT Kategorie, COUNT(*) AS AnzahlProdukte FROM Produkte GROUP BY Kategorie;"
+        },
+        {
+          "frage": "Wie berechnet man den Gesamtwert des Lagerbestands je Produkt? 'Lagerbestand' enthält die Stückzahl.",
+          "antwort": "SELECT Name, Preis * Lagerbestand AS Lagerwert FROM Produkte;"
+        },
+        {
+          "frage": "Wie berechnet man die gesamte bestellte Stückzahl je Bestellung? Die Tabelle 'Bestellpositionen' enthält 'BestellNr' und 'Menge'.",
+          "antwort": "SELECT BestellNr, SUM(Menge) AS Gesamtmenge FROM Bestellpositionen GROUP BY BestellNr;"
+        },
+        {
+          "frage": "Wie zählt man Bestellungen je Status und sortiert die häufigsten Status zuerst?",
+          "antwort": "SELECT Status, COUNT(*) AS Anzahl FROM Bestellungen GROUP BY Status ORDER BY Anzahl DESC;"
+        },
+        {
+          "frage": "Wie zeigt man Kunden, deren Bestellungen zusammen mehr als 1000 Euro wert sind? Die Tabelle 'Bestellungen' enthält 'Kunden_ID' und 'Betrag'.",
+          "antwort": "SELECT Kunden_ID, SUM(Betrag) AS Gesamtbetrag FROM Bestellungen GROUP BY Kunden_ID HAVING SUM(Betrag) > 1000;"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Stufe 4 – Tabellen verknüpfen (Joins)",
+      "cards": [
+        {
+          "frage": "Wie verknüpft man die Tabellen 'Kunden' und 'Bestellungen' über die Kunden_ID, um den Nachnamen des Kunden und seine Bestellnummer anzuzeigen?",
+          "antwort": "SELECT Kunden.Nachname, Bestellungen.BestellNr FROM Kunden INNER JOIN Bestellungen ON Kunden.Kunden_ID = Bestellungen.Kunden_ID;"
+        },
+        {
+          "frage": "Wie listet man alle Kunden auf (auch jene, die noch nie etwas bestellt haben) zusammen mit ihren eventuellen Bestellnummern?",
+          "antwort": "SELECT Kunden.Nachname, Bestellungen.BestellNr FROM Kunden LEFT JOIN Bestellungen ON Kunden.Kunden_ID = Bestellungen.Kunden_ID;"
+        },
+        {
+          "frage": "Wie zeigt man zu jedem Produkt den Namen seiner Kategorie? 'Produkte' und 'Kategorien' sind über 'Kategorie_ID' verbunden.",
+          "antwort": "SELECT Produkte.Name, Kategorien.Kategoriename FROM Produkte INNER JOIN Kategorien ON Produkte.Kategorie_ID = Kategorien.Kategorie_ID;"
+        },
+        {
+          "frage": "Wie zeigt man zu jedem Schüler den Namen seiner Klasse? Beide Tabellen besitzen die Spalte 'Klasse_ID'.",
+          "antwort": "SELECT Schueler.Vorname, Schueler.Nachname, Klassen.Klassenname FROM Schueler INNER JOIN Klassen ON Schueler.Klasse_ID = Klassen.Klasse_ID;"
+        },
+        {
+          "frage": "Wie findet man Kunden, die noch keine Bestellung aufgegeben haben?",
+          "antwort": "SELECT Kunden.Kunden_ID, Kunden.Nachname FROM Kunden LEFT JOIN Bestellungen ON Kunden.Kunden_ID = Bestellungen.Kunden_ID WHERE Bestellungen.BestellNr IS NULL;"
+        },
+        {
+          "frage": "Wie zeigt man Bestellnummer, Produktname und Stückzahl? 'Bestellpositionen' verbindet 'Bestellungen' und 'Produkte'.",
+          "antwort": "SELECT Bestellpositionen.BestellNr, Produkte.Name, Bestellpositionen.Menge FROM Bestellpositionen INNER JOIN Produkte ON Bestellpositionen.Produkt_ID = Produkte.Produkt_ID;"
+        },
+        {
+          "frage": "Wie zählt man für jeden Kunden seine Bestellungen und zeigt auch Kunden ohne Bestellungen mit der Anzahl 0?",
+          "antwort": "SELECT Kunden.Kunden_ID, Kunden.Nachname, COUNT(Bestellungen.BestellNr) AS AnzahlBestellungen FROM Kunden LEFT JOIN Bestellungen ON Kunden.Kunden_ID = Bestellungen.Kunden_ID GROUP BY Kunden.Kunden_ID, Kunden.Nachname;"
+        },
+        {
+          "frage": "Wie zeigt man Kundenname, Bestellnummer und Produktname? 'Bestellungen' ist über 'BestellNr' mit 'Bestellpositionen' und diese über 'Produkt_ID' mit 'Produkte' verbunden.",
+          "antwort": "SELECT Kunden.Nachname, Bestellungen.BestellNr, Produkte.Name FROM Kunden INNER JOIN Bestellungen ON Kunden.Kunden_ID = Bestellungen.Kunden_ID INNER JOIN Bestellpositionen ON Bestellungen.BestellNr = Bestellpositionen.BestellNr INNER JOIN Produkte ON Bestellpositionen.Produkt_ID = Produkte.Produkt_ID;"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Stufe 5 – Unterabfragen",
+      "cards": [
+        {
+          "frage": "Wie findet man Produkte, deren Preis über dem Durchschnittspreis aller Produkte liegt?",
+          "antwort": "SELECT * FROM Produkte WHERE Preis > (SELECT AVG(Preis) FROM Produkte);"
+        },
+        {
+          "frage": "Wie findet man das teuerste Produkt oder die teuersten Produkte?",
+          "antwort": "SELECT * FROM Produkte WHERE Preis = (SELECT MAX(Preis) FROM Produkte);"
+        },
+        {
+          "frage": "Wie findet man Kunden, die 2026 mindestens eine Bestellung aufgegeben haben?",
+          "antwort": "SELECT * FROM Kunden WHERE Kunden_ID IN (SELECT Kunden_ID FROM Bestellungen WHERE Bestelldatum >= '2026-01-01' AND Bestelldatum < '2027-01-01');"
+        },
+        {
+          "frage": "Wie findet man Kunden, die mindestens eine Bestellung aufgegeben haben, mit EXISTS?",
+          "antwort": "SELECT Kunden.Kunden_ID, Kunden.Nachname FROM Kunden WHERE EXISTS (SELECT 1 FROM Bestellungen WHERE Bestellungen.Kunden_ID = Kunden.Kunden_ID);"
+        },
+        {
+          "frage": "Wie findet man Kunden, die noch keine Bestellung aufgegeben haben, mit NOT EXISTS?",
+          "antwort": "SELECT Kunden.Kunden_ID, Kunden.Nachname FROM Kunden WHERE NOT EXISTS (SELECT 1 FROM Bestellungen WHERE Bestellungen.Kunden_ID = Kunden.Kunden_ID);"
+        },
+        {
+          "frage": "Wie findet man Produkte, die teurer sind als der Durchschnitt ihrer eigenen Kategorie?",
+          "antwort": "SELECT Produkte.Name, Produkte.Preis FROM Produkte WHERE Produkte.Preis > (SELECT AVG(AndereProdukte.Preis) FROM Produkte AS AndereProdukte WHERE AndereProdukte.Kategorie_ID = Produkte.Kategorie_ID);"
+        },
+        {
+          "frage": "Wie findet man Kunden, deren Bestellungen zusammen mehr als 1000 Euro wert sind, und zeigt ihren Nachnamen?",
+          "antwort": "SELECT Kunden.Nachname FROM Kunden WHERE Kunden.Kunden_ID IN (SELECT Kunden_ID FROM Bestellungen GROUP BY Kunden_ID HAVING SUM(Betrag) > 1000);"
+        }
+      ]
+    }
+  ]
+}

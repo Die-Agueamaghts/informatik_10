@@ -1,0 +1,134 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "name": "SQL-Grundstruktur & SELECT-Klauseln",
+      "cards": [
+        {
+          "frage": "Wie lautet die theoretische Grundstruktur einer vollständigen SQL-Abfrage (Reihenfolge der Klauseln)?",
+          "antwort": "Die Reihenfolge lautet: SELECT -> FROM -> WHERE -> GROUP BY -> HAVING -> ORDER BY."
+        },
+        {
+          "frage": "Welche Funktion hat das Schlüsselwort SELECT in einer SQL-Abfrage?",
+          "antwort": "Es gibt die Spaltennamen an, die Teil der Ergebnistabelle sein sollen. Es muss mindestens ein Spaltenname angegeben werden."
+        },
+        {
+          "frage": "Was bewirkt die Anweisung SELECT * ?",
+          "antwort": "Sie bewirkt, dass alle Spalten der abgefragten Tabelle in der Ergebnistabelle angezeigt werden."
+        },
+        {
+          "frage": "Was bewirkt das Schlüsselwort DISTINCT in einer SELECT-Abfrage?",
+          "antwort": "Es sorgt dafür, dass Duplikate von Datensätzen in der Ergebnistabelle nicht angezeigt werden."
+        },
+        {
+          "frage": "Wofür wird das Schlüsselwort AS verwendet und wann ist es besonders hilfreich?",
+          "antwort": "Mit AS (Aliasname) kann eine Spalte in der Ergebnistabelle anders benannt werden als in der Ausgangstabelle. Dies ist besonders bei Aggregatfunktionen hilfreich."
+        },
+        {
+          "frage": "Nenne ein Beispiel aus dem Spickzettel für die gemeinsame Nutzung von DISTINCT und AS.",
+          "antwort": "SELECT DISTINCT kontinent AS \"enthaltene Kontinente\" FROM Land"
+        },
+        {
+          "frage": "Welche Funktion hat die FROM-Klausel?",
+          "antwort": "In der FROM-Klausel muss angegeben werden, aus welcher Tabelle die Informationen für die Abfrage genommen werden sollen."
+        },
+        {
+          "frage": "Wie funktioniert die ORDER BY-Klausel und was ist die Standardeinstellung?",
+          "antwort": "Sie sortiert die Ergebnistabelle nach den angegebenen Spalten. Standardmäßig wird aufsteigend sortiert."
+        },
+        {
+          "frage": "Mit welchen Zusätzen steuert man die Sortierrichtung bei ORDER BY?",
+          "antwort": "Mit dem Zusatz ASC wird aufsteigend und mit DESC wird absteigend sortiert."
+        },
+        {
+          "frage": "Nenne ein Beispiel für eine Sortierung mit ORDER BY nach dem Spickzettel.",
+          "antwort": "SELECT name, flaeche, hauptstadt FROM LAND ORDER BY flaeche DESC"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Datensätze filtern (WHERE & Operatoren)",
+      "cards": [
+        {
+          "frage": "Welche Funktion hat die WHERE-Klausel?",
+          "antwort": "Sie zeigt in der Ergebnistabelle nur die Datensätze (Zeilen) an, welche die angegebene Bedingung (formuliert mit einem Vergleich) erfüllen."
+        },
+        {
+          "frage": "Welche typischen Vergleichsoperatoren werden im Text für die WHERE-Klausel genannt?",
+          "antwort": "Es werden <, <=, =, <> (ungleich) sowie die speziellen Operatoren IS NULL und LIKE genannt."
+        },
+        {
+          "frage": "Über welche logischen Funktionen können mehrere Vergleiche in einer WHERE-Klausel verknüpft werden?",
+          "antwort": "Sie werden über die Funktionen AND, OR und NOT verknüpft (wobei Ausdrücke ggf. sinnvoll geklammert werden müssen)."
+        },
+        {
+          "frage": "Gib das mehrteilige WHERE-Beispiel aus dem Spickzettel wieder.",
+          "antwort": "WHERE jahr > 2015 AND laufzeit <= 90 AND NOT fsk = 18"
+        },
+        {
+          "frage": "Wofür wird der LIKE-Operator genutzt und welche zwei Wildcards (Platzhalter) gibt es?",
+          "antwort": "Er wird zur Mustererkennung von Einträgen verwendet. Die Platzhalter sind % (beliebig viele Zeichen, auch keines) und _ (genau ein beliebiges Zeichen)."
+        },
+        {
+          "frage": "Wird bei der Nutzung des LIKE-Operators im SQL-Standard die Groß-/Kleinschreibung berücksichtigt?",
+          "antwort": "Nein, laut Spickzettel wird die Groß-/Kleinschreibung bei LIKE nicht berücksichtigt."
+        },
+        {
+          "frage": "Was findet die Bedingung: WHERE titel LIKE \"You%\" ?",
+          "antwort": "Sie findet alle Titel, die mit \"You\" beginnen."
+        },
+        {
+          "frage": "Was findet die Bedingung: WHERE titel LIKE \"%love%\" ?",
+          "antwort": "Sie findet alle Titel, die das Wort \"love\" enthalten."
+        },
+        {
+          "frage": "Was findet die Bedingung: WHERE titel LIKE \"L___\" (mit drei Unterstrichen)?",
+          "antwort": "Sie findet alle Titel, die mit L beginnen und genau 4 Zeichen lang sind."
+        },
+        {
+          "frage": "Was bedeutet der Begriff NULL in einer Datenbank?",
+          "antwort": "NULL bedeutet, dass kein Wert in einer Zelle eingetragen ist."
+        },
+        {
+          "frage": "Mit welchem Befehl überprüft man in einer Bedingung, ob eine Zelle leer (ohne Wert) ist?",
+          "antwort": "Mit dem Operator IS NULL."
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Aggregatfunktionen & Gruppierung",
+      "cards": [
+        {
+          "frage": "Welche fünf Aggregatfunktionen werden auf dem Spickzettel für Berechnungen genannt?",
+          "antwort": "AVG (Durchschnitt), COUNT (Anzahl Einträge), MAX (Maximum), MIN (Minimum) und SUM (Summe)."
+        },
+        {
+          "frage": "Was berechnen die Funktionen AVG und SUM konkret?",
+          "antwort": "AVG berechnet den Durchschnitt aller Werte einer Spalte; SUM berechnet die Summe aller Werte einer Spalte."
+        },
+        {
+          "frage": "Was geben die Funktionen MAX und MIN aus?",
+          "antwort": "Sie geben das Maximum bzw. das Minimum aller Werte einer Spalte aus."
+        },
+        {
+          "frage": "Gib das SQL-Beispiel für eine Aggregatfunktion mit Aliasnamen und Filterung aus dem Text wieder.",
+          "antwort": "SELECT COUNT(*) AS \"Anzahl afrikanischer Länder \" FROM Land WHERE kontinent = \"Afrika\""
+        },
+        {
+          "frage": "Was bewirkt die GROUP BY-Klausel?",
+          "antwort": "Datensätze mit demselben Wert in der angegebenen Spalte werden gruppiert. Dies ist nur in Kombination mit Aggregatfunktionen sinnvoll."
+        },
+        {
+          "frage": "Wofür wird die HAVING-Klausel verwendet?",
+          "antwort": "Mit HAVING werden Bedingungen an bereits gruppierte Datensätze formuliert (Filterung nach der Gruppierung)."
+        },
+        {
+          "func": "Gib das komplexe kombinierte Beispiel für GROUP BY und HAVING aus dem Dokument an.",
+          "antwort": "SELECT fsk, MIN(laufzeit) FROM Film WHERE genre1=\"Filmkomödie\" OR genre2=\"Filmkomödie\" GROUP BY fsk HAVING fsk <16"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "files": [
+    { "file": "abkuerzungen.json", "label": "Abkürzungen" },
+    { "file": "definitionen.json", "label": "Begriffe" },
+    { "file": "sql_abfragen.json", "label": "SQL-Abfragen" },
+    { "file": "anhang.json", "label": "Anwendungsaufgaben" }
+  ]
+}

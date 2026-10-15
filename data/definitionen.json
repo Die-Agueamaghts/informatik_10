@@ -1,0 +1,130 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "name": "Grundlagen & Modellierung",
+      "cards": [
+        {
+          "frage": "Was ist ein Szenario?",
+          "antwort": "Ein Szenario beschreibt eine Situation oder Aufgabe, für die man eine Datenbank plant, zum Beispiel eine Schulbibliothek, die Bücher und Ausleihen verwaltet."
+        },
+        {
+          "frage": "Was ist eine Datenstruktur?",
+          "antwort": "Eine Datenstruktur legt fest, wie Daten geordnet und miteinander verbunden sind. In einer Datenbank können Daten zum Beispiel in Tabellen stehen."
+        },
+        {
+          "frage": "Was sind Attribute?",
+          "antwort": "Attribute sind Eigenschaften, mit denen ein Objekt beschrieben wird. Bei einem Schüler könnten das Name, Geburtsdatum und Klasse sein."
+        },
+        {
+          "frage": "Was versteht man unter Modellieren?",
+          "antwort": "Beim Modellieren vereinfacht man eine echte Situation und hält die wichtigen Informationen fest, bevor man die Datenbank erstellt."
+        },
+        {
+          "frage": "Was bedeutet der Begriff Modell?",
+          "antwort": "Ein Modell ist eine vereinfachte Darstellung der wichtigen Dinge und Beziehungen aus einer echten Situation."
+        },
+        {
+          "frage": "Was ist ein OO-Modell?",
+          "antwort": "Ein OO-Modell (objektorientiertes Modell) beschreibt die Dinge eines Szenarios als Objekte oder Klassen. Es zeigt ihre Attribute und Beziehungen und hilft bei der Planung der Datenbank."
+        },
+        {
+          "frage": "Was ist ein Objekt im Kontext von Datenbanken?",
+          "antwort": "Ein Objekt steht für ein einzelnes Ding aus dem Szenario, zum Beispiel einen bestimmten Schüler. Es hat eigene Attributwerte."
+        },
+        {
+          "frage": "Was ist eine Instanz im Datenbankkontext?",
+          "antwort": "Eine Instanz ist ein konkretes Objekt einer Klasse. Zum Beispiel ist der Schüler Max eine Instanz der Klasse Schüler."
+        },
+        {
+          "frage": "Was ist eine Objektkarte?",
+          "antwort": "Eine Objektkarte zeigt ein einzelnes Objekt mit seinen konkreten Attributwerten, zum Beispiel max: Schüler mit Name = Max."
+        },
+        {
+          "frage": "Was ist eine Klassenkarte?",
+          "antwort": "Eine Klassenkarte zeigt den Bauplan für Objekte einer Klasse: den Klassennamen und die Attribute, die jedes Objekt haben kann."
+        },
+        {
+          "frage": "Was ist ein Datentyp?",
+          "antwort": "Ein Datentyp legt fest, welche Art von Wert in einem Attribut stehen darf, zum Beispiel Text, eine ganze Zahl oder ein Datum."
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "SQL & Relationale Datenbanken",
+      "cards": [
+        {
+          "frage": "Was ist eine Datenbank?",
+          "antwort": "Eine Datenbank ist eine geordnete Sammlung von Daten, die dauerhaft gespeichert und verwaltet werden."
+        },
+        {
+          "frage": "Was ist ein Datenbankmanagementsystem?",
+          "antwort": "Ein Datenbankmanagementsystem (DBMS) ist ein Programm, mit dem man Datenbanken anlegt, ändert, speichert und durchsucht."
+        },
+        {
+          "frage": "Was bedeutet Struktur der Datenbank?",
+          "antwort": "Damit ist der Aufbau der Datenbank gemeint: welche Tabellen und Spalten es gibt und wie die Tabellen miteinander verbunden sind."
+        },
+        {
+          "frage": "Was ist eine relationale Datenbank?",
+          "antwort": "Eine relationale Datenbank ordnet Daten in Tabellen. Tabellen können über Schlüssel miteinander verbunden werden."
+        },
+        {
+          "frage": "Was ist eine Tabelle in einer Datenbank?",
+          "antwort": "Eine Tabelle sammelt zusammengehörige Daten. Sie besteht aus Spalten und Zeilen, zum Beispiel eine Tabelle mit allen Schülern einer Klasse."
+        },
+        {
+          "frage": "Was ist eine Spalte?",
+          "antwort": "Eine Spalte enthält dieselbe Art von Information für alle Einträge, zum Beispiel den Namen jedes Schülers."
+        },
+        {
+          "frage": "Was ist ein Datensatz oder eine Zeile?",
+          "antwort": "Ein Datensatz (eine Zeile) enthält alle Informationen zu einem Eintrag in einer Tabelle, zum Beispiel Name, Klasse und Geburtsdatum eines Schülers."
+        },
+        {
+          "frage": "Was versteht man unter einem Tabellenschema?",
+          "antwort": "Ein Tabellenschema beschreibt den Aufbau einer Tabelle: ihren Namen, ihre Spalten und deren Datentypen."
+        },
+        {
+          "frage": "Was ist ein Primärschlüssel?",
+          "antwort": "Ein Primärschlüssel ist eine Spalte, deren Wert jede Zeile eindeutig kennzeichnet, zum Beispiel eine Schüler-ID. Im Tabellenschema wird er oft unterstrichen."
+        },
+        {
+          "frage": "Was ist ein Fremdschlüssel?",
+          "antwort": "Ein Fremdschlüssel ist eine Spalte, die auf den Primärschlüssel einer anderen Tabelle verweist. So werden die Tabellen miteinander verbunden."
+        },
+        {
+          "frage": "Was ist SQL?",
+          "antwort": "Structured Query Language – die standardisierte, deklarative Datenbanksprache zur Abfrage, Manipulation und Administration von relationalen und objektrelationalen Datenbanksystemen."
+        },
+        {
+          "frage": "Was ist eine SQL-Abfrage?",
+          "antwort": "Ein strukturierter Befehl an das Datenbankmanagementsystem, um gezielte Datenmengen aus Tabellen abzurufen, zu filtern, zu sortieren oder zu verknüpfen."
+        },
+        {
+          "frage": "Wie sieht eine grundlegende SQL-Abfrage aus?",
+          "antwort": "Sie besteht mindestens aus der SELECT-Klausel (Spaltenauswahl) und der FROM-Klausel (Angabe der Quelltabelle), oft erweitert um WHERE zur Zeilenfilterung."
+        },
+        {
+          "frage": "Was ist ein Aliasname (AS) in SQL?",
+          "antwort": "Ein temporärer, für die Dauer der Abfrage gültiger Ersatzname für eine Tabelle oder Spalte, der Berechnungen benennt oder komplexe Abfragen lesbarer macht."
+        },
+        {
+          "frage": "Was sind Aggregatfunktionen in SQL?",
+          "antwort": "Mathematische Funktionen, die Werte über mehrere Zeilen einer Tabellenspalte hinweg zusammenfassen, um einen einzelnen Ergebniswert zu berechnen (z. B. SUM, COUNT, AVG)."
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Datenbankmodellierung (Vom OO-Modell zum Tabellenschema)",
+      "cards": [
+        {
+          "frage": "Welche 5 Schritte sind notwendig, um für ein reales Szenario eine Datenbank zu entwickeln?",
+          "antwort": "1. Das Szenario verstehen und wichtige Objekte finden. 2. Objekte und Attribute im OO-Modell festhalten. 3. Tabellen, Spalten und Schlüssel planen. 4. Das Tabellenschema erstellen. 5. Die Tabellen im DBMS anlegen und mit Daten füllen."
+        }
+      ]
+    }
+  ]
+}
