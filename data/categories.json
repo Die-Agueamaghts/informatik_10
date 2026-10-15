@@ -1,5 +1,6 @@
 {
   "files": [
+    { "file": "kapitel_01.json", "label": "Kapitel 01" },
     { "file": "abkuerzungen.json", "label": "Abkürzungen" },
     { "file": "definitionen.json", "label": "Begriffe" },
     { "file": "sql_abfragen.json", "label": "SQL-Abfragen" },

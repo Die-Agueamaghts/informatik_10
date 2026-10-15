@@ -1,0 +1,94 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "name": "SQL-Mehrtabellenabfragen (Kartesisches Produkt & Verbund)",
+      "cards": [
+        {
+          "frage": "Was versteht man unter einem 'kartesischen Produkt' in einer SQL-Abfrage?",
+          "antwort": "Ein kartesisches Produkt entsteht, wenn man mehrere Tabellen im FROM-Teil ohne eine einschränkende WHERE-Bedingung abfragt. Dabei wird jede Zeile der ersten Tabelle mit jeder Zeile der zweiten Tabelle kombiniert, wodurch auch viele fehlerhafte Kombinationen entstehen."
+        },
+        {
+          "frage": "Wie berechnet sich die Anzahl der Zeilen im Ergebnis eines kartesischen Produkts?",
+          "antwort": "Die Anzahl der Ergebniszeilen entspricht der Multiplikation der Zeilenanzahlen der beteiligten Tabellen (z. B. 3 Zeilen der Tabelle A × 2 Zeilen der Tabelle B = 6 Zeilen im Ergebnis)."
+        },
+        {
+          "frage": "Was ist der Unterschied zwischen einem kartesischen Produkt und einem Verbund (Join)?",
+          "antwort": "Ein Verbund (Join) ist die Kombination aus einem kartesischen Produkt und einer gezielten Bedingung (im WHERE-Teil), die dafür sorgt, dass nur die logisch zusammengehörigen und gültigen Zeilen aus den Tabellen miteinander verknüpft werden."
+        },
+        {
+          "frage": "Warum und wie wird die 'Punktnotation' bei Mehrtabellenabfragen verwendet?",
+          "antwort": "Die Punktnotation (z. B. 'Wahlkurs.name') wird verwendet, wenn zwei Tabellen Spalten mit identischem Namen besitzen. Der vorangestellte Tabellenname, gefolgt von einem Punkt, sorgt für Eindeutigkeit, damit das System weiß, aus welcher Tabelle die Spalte geladen werden soll."
+        },
+        {
+          "frage": "Welche vier Schritte werden im Buch empfohlen, um eine korrekte Abfrage über mehrere Tabellen zu formulieren?",
+          "antwort": "1) Tabellen im FROM-Teil auswählen und mit Komma trennen. 2) Gemeinsame Spalten identifizieren und die Verbund-Bedingung im WHERE-Teil formulieren. 3) Gewünschte Spalten im SELECT-Teil einschränken (evtl. mit Punktnotation). 4) Die Abfrage optional mit weiteren Bedingungen, Sortierungen oder Funktionen vervollständigen."
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Datenbanken: Grundlagen der Tabellenverknüpfung",
+      "cards": [
+        {
+          "frage": "Gegeben sind zwei relationale Datenbanktabellen: 'Gemeinde' und 'Schwimmbad'. Beide Tabellen enthalten eine Spalte mit dem Namen 'name'. Wenn man nun eine Abfrage über beide Tabellen gleichzeitig durchführt, warum muss man im SELECT-Teil 'Gemeinde.name' schreiben statt nur 'name'?",
+          "antwort": "Weil ein Benennungskonflikt (Mehrdeutigkeit) entsteht. Da die Spalte 'name' in beiden Tabellen existiert, weiß das Datenbanksystem ohne den vorangestellten Tabellennamen (Punktnotation) nicht, welcher Name ausgegeben werden soll."
+        },
+        {
+          "frage": "Die Tabelle 'Schwimmbad' hat 1.601 Einträge, die Tabelle 'Gemeinde' hat 2.230 Einträge. Wie viele Zeilen liefert eine SQL-Abfrage zurück, die beide Tabellen im FROM-Teil aufruft, aber keinerlei WHERE-Bedingung oder Einschränkung enthält?",
+          "antwort": "Es entsteht ein kartesisches Produkt. Die Zeilenanzahl berechnet sich durch die Multiplikation beider Tabellengrößen: 1.601 * 2.230 = 3.570.230 Zeilen."
+        },
+        {
+          "frage": "Was ist der Unterschied zwischen einem unbedingten 'kartesischen Produkt' und einem 'Verbund' (Join) bei einer Datenbankabfrage über mehrere Tabellen?",
+          "antwort": "Das kartesische Produkt kombiniert blind jede Zeile der ersten Tabelle mit jeder Zeile der zweiten Tabelle, wodurch viele falsche Kombinationen entstehen. Ein Verbund (Join) filtert dieses Produkt über eine WHERE-Bedingung, sodass nur die Zeilen verknüpft werden, die logisch zusammengehören (z. B. über identische Schlüsselnummern)."
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "SQL-Praxis & Abfrage-Logik",
+      "cards": [
+        {
+          "frage": "Eine Datenbank enthält die Tabellen 'Gemeinde' (mit den Spalten 'schluessel', 'name') und 'Schwimmbad' (mit den Spalten 'gemeindeschluessel', 'name', 'url'). Wie lautet der SQL-Befehl, um den Namen der Gemeinde, den Namen des Schwimmbads und dessen URL für alle Bäder in der Gemeinde 'Miesbach' korrekt verknüpft auszugeben?",
+          "antwort": "SELECT Gemeinde.name, Schwimmbad.name, Schwimmbad.url FROM Gemeinde, Schwimmbad WHERE Gemeinde.schluessel = Schwimmbad.gemeindeschluessel AND Gemeinde.name = 'Miesbach';"
+        },
+        {
+          "frage": "Was bewirkt die SQL-Bedingung 'HAVING COUNT(Schwimmbad.id) > 1' in Kombination mit einer Gruppierung nach dem Gemeindeschlüssel ('GROUP BY Gemeinde.schluessel')?",
+          "antwort": "Sie filtert das Ergebnis so, dass nur diejenigen Gemeinden ausgegeben werden, in denen sich mehr als ein Schwimmbad befindet (Gemeinden mit genau einem oder keinem Bad werden ausgeschlossen)."
+        },
+        {
+          "frage": "Drei Tabellen ('Song', 'Playlist' und die Verknüpfungstabelle 'Song_in_Playlist') enthalten jeweils eine ID als Primärschlüssel. Die Tabelle 'Song_in_Playlist' nutzt zudem die Fremdschlüssel 'song_id' und 'playlist_id'. Wie muss die WHERE-Bedingung lauten, um alle drei Tabellen für eine Abfrage sinnvoll miteinander zu verbinden?",
+          "antwort": "WHERE Song.id = Song_in_Playlist.song_id AND Playlist.id = Song_in_Playlist.playlist_id"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Fehlersuche: Syntax vs. Semantik",
+      "cards": [
+        {
+          "frage": "Eine SQL-Abfrage lautet: 'SELECT * FROM Fluggesellschaft, Flug'. Die Datenbank führt den Befehl fehlerfrei aus, aber das Ergebnis ist unbrauchbar. Liegt hier ein syntaktischer oder ein semantischer Fehler vor? Warum?",
+          "antwort": "Es liegt ein semantischer (inhaltlicher) Fehler vor. Die Syntax ist korrekt, weshalb die Datenbank den Befehl ausführt. Das Ergebnis ist jedoch unbrauchbar, da ohne WHERE-Verbindung jeder existierende Flug jeder beliebigen Fluggesellschaft zugeordnet wird (kartesisches Produkt)."
+        },
+        {
+          "frage": "Gegeben ist die fehlerhafte Abfrage: 'SELECT schluessel FROM Gemeinde, Zoo WHERE Gemeinde.name = Zoo.name'. Warum ist diese Verknüpfung über das Feld 'name' logisch unsinnig und wie repariert man sie im Normalfall?",
+          "antwort": "Sie ist unsinnig, weil sie fälschlicherweise eine Gemeinde und einen Zoo nur deshalb verknüpft, weil sie zufällig den exakt gleichen Namen tragen. Korrekt verknüpft man Tabellen über eindeutige Schlüsselbeziehungen, meistens so: WHERE Gemeinde.schluessel = Zoo.gemeindeschluessel."
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Fortgeschrittene Techniken: Self-Join",
+      "cards": [
+        {
+          "frage": "Was passiert mathematisch mit der Spalten- und Zeilenanzahl, wenn man eine Tabelle mit 8 Spalten und 1.601 Zeilen mit sich selbst über ein kartesisches Produkt verbindet (SELECT * FROM Tabelle AS t1, Tabelle AS t2)?",
+          "antwort": "Die Ergebnistabelle verdoppelt ihre Spaltenanzahl auf 16 Spalten (8 von t1 und 8 von t2). Die Zeilenanzahl multipliziert sich mit sich selbst (1.601 * 1.601), was zu genau 2.563.201 Zeilen führt."
+        },
+        {
+          "frage": "In einer SQL-Abfrage wird eine Tabelle 'Schwimmbad' zweimal aufgerufen (als s1 und s2). In der WHERE-Bedingung steht: 'ABS(s1.breitengrad - s2.breitengrad) < 0.08 AND s1.id = 549'. Welches Ziel verfolgt diese mathematische Einschränkung?",
+          "antwort": "Es handelt sich um eine Umkreissuche (Self-Join). Die Abfrage sucht nach anderen Schwimmbädern (s2), deren geografischer Breitengrad sich nur minimal vom Breitengrad des ganz bestimmten Schwimmbads mit der ID 549 (s1) unterscheidet, die sich also in der Nähe befinden."
+        }
+      ]
+    }
+  ]
+}
