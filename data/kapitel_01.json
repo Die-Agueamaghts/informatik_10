@@ -89,6 +89,74 @@
           "antwort": "Es handelt sich um eine Umkreissuche (Self-Join). Die Abfrage sucht nach anderen Schwimmbädern (s2), deren geografischer Breitengrad sich nur minimal vom Breitengrad des ganz bestimmten Schwimmbads mit der ID 549 (s1) unterscheidet, die sich also in der Nähe befinden."
         }
       ]
+    },
+    {
+      "id": "6",
+      "name": "Grundlagen der Datenmodellierung & Redundanz",
+      "cards": [
+        {
+          "frage": "Was bedeutet der Begriff 'Redundanz' im Zusammenhang mit Daten und Datenbanken?",
+          "antwort": "Redundanz bedeutet, dass dieselbe Information mehrfach an verschiedenen Stellen gespeichert ist. Ein Beispiel: Wenn in einer Sportvereins-Tabelle bei jedem gebuchten Kurs die komplette Adresse des Mitglieds neu eingetippt wird, ist die Adresse mehrfach (redundant) vorhanden."
+        },
+        {
+          "frage": "Warum sollte man Redundanzen in einer Datenbank unbedingt vermeiden? Nenne zwei Gründe.",
+          "antwort": "1. Speicherplatzverschwendung: Gleiche Daten verbrauchen unnötig Platz. 2. Fehleranfälligkeit (Inkonsistenz): Zieht ein Mitglied um, muss die Adresse an jeder einzelnen Stelle geändert werden. Vergisst man eine Zeile, hat die Datenbank widersprüchliche Daten."
+        },
+        {
+          "frage": "Wie löst man das Problem von Redundanzen bei der Planung einer Datenbank?",
+          "antwort": "Man strukturiert die Daten 'objektorientiert'. Das bedeutet, man trennt die Informationen in logische Einheiten (Objekte) auf. Statt einer riesigen Tabelle erstellt man mehrere getrennte Tabellen (z. B. eine Tabelle nur für 'Mitglieder' und eine nur für 'Sportgruppen') und verknüpft diese über Linien."
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Objekt- und Klassendiagramme",
+      "cards": [
+        {
+          "frage": "Was ist der Unterschied zwischen einem Objektdiagramm und einem Klassendiagramm?",
+          "antwort": "Ein Objektdiagramm zeigt konkrete Einzelfälle (z. B. das konkrete Mitglied 'Martha Pfahl' und ihren konkreten Kurs 'Volleyball'). Ein Klassendiagramm ist der allgemeine Bauplan für die gesamte Datenbank (z. B. wie die Klasse 'Mitglied' allgemein mit der Klasse 'Gruppe' zusammenhängt)."
+        },
+        {
+          "frage": "Welche drei wichtigen Informationen müssen an einer Beziehungslinie in einem Klassendiagramm stehen?",
+          "antwort": "1. Ein aussagekräftiger Beziehungsname (z. B. 'trainiert in'). 2. Eine Pfeilspitze für die Leserichtung (damit man weiß, wer was tut). 3. Die Kardinalität (Zahlen oder Buchstaben wie 1, n, m), die angibt, wie viele Objekte miteinander verknüpft sein dürfen."
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Beziehungstypen und Kardinalitäten",
+      "cards": [
+        {
+          "frage": "Was gibt die 'Kardinalität' in einem Klassendiagramm an?",
+          "antwort": "Die Kardinalität bestimmt die Obergrenze der beteiligten Objekte. Sie zeigt also an, mit wie vielen Objekten der einen Klasse ein Objekt der anderen Klasse maximal in Beziehung stehen kann."
+        },
+        {
+          "frage": "Erkläre den Beziehungstyp '1:n' (Eins zu Viele) an einem logischen Beispiel.",
+          "antwort": "Ein Objekt der Klasse A ist mit vielen Objekten der Klasse B verknüpft, aber umgekehrt gilt das nicht. Beispiel: Eine 'Abteilung' (z. B. Ballsport) bietet mehrere 'Gruppen' (Volleyball, Basketball) an. Eine bestimmte Gruppe gehört aber immer zu genau einer Abteilung."
+        },
+        {
+          "frage": "Erkläre den Beziehungstyp 'n:m' (Viele zu Viele) an einem logischen Beispiel.",
+          "antwort": "Objekte beider Klassen können mit jeweils vielen Objekten der anderen Klasse verknüpft sein. Beispiel: Ein 'Mitglied' kann in mehreren 'Sportgruppen' gleichzeitig trainieren (z. B. Turnen und Beachvolleyball). Gleichzeitig besteht eine 'Sportgruppe' aus vielen verschiedenen 'Mitgliedern'."
+        },
+        {
+          "frage": "Erkläre den Beziehungstyp '1:1' (Eins zu Eins) an einem logischen Beispiel.",
+          "antwort": "Jedes Objekt der einen Klasse ist mit genau einem Objekt der anderen Klasse verknüpft. Beispiel: Eine 'Abteilung' im Verein hat genau eine 'Leitung' (einen Chef). Umgekehrt leitet diese 'Leitung' auch nur genau diese eine Abteilung."
+        }
+      ]
+    },
+    {
+      "id": "99",
+      "name": "Test",
+      "cards": [
+        {
+          "frage": "Gegeben ist eine Schul-Datenbank mit einer Tabelle für Buchausleihen. Darin ist die Zeile [schueler_id: 501, name: 'Max Muster', klasse: '10a', buch_id: 'B-99', buchtitel: 'Informatik 10'] und eine zweite Zeile [schueler_id: 501, name: 'Max Muster', klasse: '10a', buch_id: 'B-12', buchtitel: 'Mathematik 10'] enthalten. Warum führt diese mehrfache Speicherung von Name und Klasse zu einem Problem (Inkonsistenz), wenn Max die Klasse wechselt?",
+          "antwort": "Es entsteht eine Redundanz. Wenn Max in die Klasse 10b wechselt, muss dieser Eintrag in jeder einzelnen Zeile, in der er auftaucht, manuell geändert werden. Vergisst man dabei auch nur eine Zeile, enthält die Datenbank widersprüchliche Daten (Inkonsistenz) – Max wäre laut System in zwei Klassen gleichzeitig."
+        },
+        {
+          "frage": "Für ein digitales Ausleihesystem einer Schule soll der Beziehungstyp zwischen den Klassen SCHÜLER und BUCH bestimmt werden. Ein einzelner Schüler darf mehrere Schulbücher gleichzeitig ausleihen. Ein ganz bestimmtes, gedrucktes Buchexemplar (z. B. mit der Barcode-ID B-99) kann zur selben Zeit jedoch immer nur von genau einem Schüler mit nach Hause genommen werden. Welcher der drei grundlegenden Beziehungstypen (1:1, 1:n oder n:m) liegt hier vor?",
+          "antwort": "Es handelt sich um einen 1:n-Beziehungstyp (Eins zu Viele). Ein Objekt der Klasse SCHÜLER kann mit vielen (n) Objekten der Klasse BUCH verknüpft sein, während ein einzelnes Objekt der Klasse BUCH mit genau einem (1) Objekt der Klasse SCHÜLER verbunden ist."
+        }
+      ]
     }
   ]
 }

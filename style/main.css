@@ -475,6 +475,35 @@ main {
   font-size: clamp(1.2rem, 6vw, 1.8rem);
   font-weight: 800;
 }
+.flashcard-face.is-dense .question-text,
+.flashcard-face.is-dense .answer-display {
+  font-size: clamp(1.05rem, 4.8vw, 1.45rem);
+  font-weight: 600;
+  line-height: 1.25;
+}
+.flashcard-face.is-very-dense .question-text,
+.flashcard-face.is-very-dense .answer-display {
+  font-size: clamp(0.95rem, 3.8vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.4;
+}
+.flashcard-face.is-dense .question-example {
+  font-size: clamp(0.72rem, 1.6vw, 0.9rem);
+  line-height: 1.4;
+}
+.flashcard-face.is-very-dense .question-example {
+  font-size: clamp(0.68rem, 1.4vw, 0.82rem);
+}
+.flashcard-face.is-dense .question-text {
+  margin-top: 12px;
+}
+.flashcard-face.is-dense .answer-wrap {
+  gap: 8px;
+}
+.flashcard-face.is-dense .example-wrap {
+  margin-top: 8px;
+  gap: 4px;
+}
 .answer-example-wrap {
   display: grid;
   gap: 6px;

@@ -374,6 +374,17 @@
     element.hidden = false;
   }
 
+  function setCardFaceDensity(face, textParts) {
+    if (!face) return;
+
+    const textLength = textParts.reduce(
+      (total, text) => total + String(text || "").trim().length,
+      0,
+    );
+    face.classList.toggle("is-dense", textLength >= 85);
+    face.classList.toggle("is-very-dense", textLength >= 150);
+  }
+
   function loadStats() {
     try {
       const saved = JSON.parse(
@@ -581,6 +592,14 @@
       }
 
       answerArea.appendChild(answerWrap);
+      setCardFaceDensity(flashcard.querySelector(".flashcard-front"), [
+        promptText,
+        exampleValue,
+      ]);
+      setCardFaceDensity(flashcard.querySelector(".flashcard-back"), [
+        answer.textContent,
+        backExample,
+      ]);
       flashcard.tabIndex = 0;
       flashcard.setAttribute("role", "button");
       flashcard.setAttribute("aria-pressed", "false");
@@ -613,15 +632,22 @@
       ? getFrenchExampleValue(card)
       : getGermanExampleValue(card);
     const exampleLang = isQuestionPrompt ? getQuestionLanguage(card) : "de-DE";
+    const displayedExample =
+      exampleValue ||
+      (isQuestionPrompt
+        ? getGermanExampleValue(card)
+        : getFrenchExampleValue(card));
     renderTextWithPlay(
       exampleTextContainer,
-      exampleValue ||
-        (isQuestionPrompt
-          ? getGermanExampleValue(card)
-          : getFrenchExampleValue(card)),
+      displayedExample,
       exampleLang,
       exampleLang === "fr-FR" ? "Französisch" : "Deutsch",
     );
+    setCardFaceDensity(flashcard.querySelector(".flashcard-front"), [
+      promptText,
+      displayedExample,
+    ]);
+    setCardFaceDensity(flashcard.querySelector(".flashcard-back"), []);
 
     flashcard.classList.add("is-test");
     flashcard.removeAttribute("tabindex");

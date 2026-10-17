@@ -129,6 +129,66 @@
           "antwort": "SELECT fsk, MIN(laufzeit) FROM Film WHERE genre1=\"Filmkomödie\" OR genre2=\"Filmkomödie\" GROUP BY fsk HAVING fsk <16"
         }
       ]
+    },
+    {
+      "id": "4",
+      "name": "Klassen- und Objektdiagramme",
+      "cards": [
+        {
+          "frage": "Was ist der Unterschied zwischen einem Objektdiagramm und einem Klassendiagramm in der Informatik?",
+          "antwort": "Ein Klassendiagramm ist der Bauplan (die Schablone) für Datenobjekte. Es legt fest, welche Attribute (Eigenschaften) Objekte einer bestimmten Art allgemein haben (z. B. die Klasse 'BUCH' mit den Attributen 'Titel' und 'Preis'). Ein Objektdiagramm zeigt dagegen konkrete Beispiele dieser Klasse zu einem bestimmten Zeitpunkt mit echten Werten (z. B. das konkrete Objekt 'Buch1' mit dem Titel 'Harry Potter' und dem Preis '19,99 €')."
+        },
+        {
+          "frage": "Warum wird bei einer Schulverwaltung die Schulleitung oft als Beziehung und nicht als eigene Klasse modelliert?",
+          "antwort": "Ein Schulleiter ist im Grunde eine Lehrkraft mit einer besonderen Funktion. Würde man eine eigene Klasse 'Schulleitung' erstellen, müsste man alle Attribute einer Lehrkraft (Name, Adresse, Fächer) dort doppelt pflegen. Stattdessen nutzt man eine Beziehung (z. B. 'hat als Schulleitung') zwischen der Schule und der bereits existierenden Klasse 'LEHRKRAFT'. Das spart Datenplatz und verhindert Fehler."
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Beziehungen und Kardinalitäten",
+      "cards": [
+        {
+          "frage": "Was versteht man unter der Kardinalität einer Beziehung bei Datenmodellen?",
+          "antwort": "Die Kardinalität gibt an, mit wie vielen Objekten der einen Klasse ein Objekt der anderen Klasse in Beziehung stehen kann. Sie bestimmt die Anzahlverhältnisse in beide Leserichtungen (z. B. 1:1, 1:n oder n:m). Ein konkretes Beispiel: Eine Schulklasse wird von genau einer Lehrkraft geleitet (1), aber eine Lehrkraft kann im Laufe des Tages mehrere Klassen unterrichten (n)."
+        },
+        {
+          "frage": "Wie unterscheidet sich die einfache Kardinalität 'n' von der genaueren 'min..max'-Notation?",
+          "antwort": "Das einfache 'n' bedeutet nur allgemein 'keines, ein oder mehrere Objekte'. Die genauere 'min..max'-Notation legt feste Unter- und Obergrenzen fest. Zum Beispiel bedeutet '6..30' bei einer Sportgruppe, dass mindestens 6 und höchstens 30 Mitglieder teilnehmen müssen, damit die Gruppe existieren kann."
+        },
+        {
+          "frage": "Erkläre den Unterschied zwischen den Kardinalitäten '0..1' und '1..1' anhand eines Beispiels aus dem Schulalltag.",
+          "antwort": "'0..1' bedeutet optional: Ein Objekt kann, muss aber nicht mit einem anderen verknüpft sein (z. B. hat eine Klasse 0 oder 1 Klassensprecher). '1..1' bedeutet zwingend genau eins: Jedes Objekt muss genau einen Partner haben (z. B. gehört jeder Schüler zu genau einer Schulklasse)."
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Redundanzen und Datenintegrität",
+      "cards": [
+        {
+          "frage": "Was ist eine Redundanz in einer Datentabelle und welches Problem bringt sie mit sich?",
+          "antwort": "Eine Redundanz bedeutet, dass dieselbe Information mehrfach unnötig in einer Tabelle abgespeichert ist (z. B. wenn bei jedem Kauf eines Kunden Name und E-Mail-Adresse der Person immer wieder komplett neu in die Zeile eingetragen werden). Das Problem: Wenn sich die E-Mail-Adresse ändert, muss sie an extrem vielen Stellen angepasst werden. Vergisst man eine Zeile, entstehen widersprüchliche Daten (Inkonsistenz)."
+        },
+        {
+          "frage": "Wann kann eine Redundanz von Daten ausnahmsweise vorteilhaft und absolut sinnvoll sein?",
+          "antwort": "Bei der Erstellung von Backups (Sicherungskopien). Hier kopiert man Daten ganz bewusst an einen zweiten Ort (z. B. auf eine externe Festplatte oder in eine Cloud). Sollte der Computer kaputtgehen oder Daten durch Viren gelöscht werden, schützt diese bewusste Redundanz vor permanentem Datenverlust."
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Rekursive Beziehungen",
+      "cards": [
+        {
+          "frage": "Was ist eine rekursive Beziehung in einem Klassendiagramm?",
+          "antwort": "Eine rekursive Beziehung liegt vor, wenn Objekte einer Klasse mit Objekten *derselben* Klasse in Beziehung stehen. Die Beziehungslinie führt also von einer Klasse aus und zeigt wieder auf sich selbst zurück."
+        },
+        {
+          "frage": "Nenne zwei anschauliche Beispiele aus der realen Welt für eine rekursive Beziehung.",
+          "antwort": "1. **Räume in einem Spiel**: Ein Raum grenzt an einen anderen Raum (Klasse RAUM steht in Beziehung zu Klasse RAUM).\n2. **Flüsse**: Ein Nebenfluss mündet in einen anderen Fluss (Klasse FLUSS steht in Beziehung zu Klasse FLUSS)."
+        }
+      ]
     }
   ]
 }
